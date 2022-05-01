@@ -1,5 +1,6 @@
 package com.bridge.service;
 
+import com.bridge.model.InvoiceSummary;
 import com.bridge.model.Ride;
 
 public class InvoiceService {
@@ -23,11 +24,19 @@ public class InvoiceService {
 
     }
 
-    public double calculateFare(Ride[] rides){
+    public double calculateTotalFare(Ride[] rides) {
         double totalFare = 0.0;
-        for(Ride ride : rides){
-            totalFare = calculateFare(ride.getDistance(),ride.getTime());
+        for (Ride ride : rides) {
+            totalFare = calculateFare(ride.getDistance(), ride.getTime());
         }
         return totalFare;
+
+    }
+    public InvoiceSummary calculateFare(Ride[] rides) {
+        double totalFare = 0.0;
+        for (Ride ride : rides) {
+            totalFare += calculateFare(ride.getDistance(), ride.getTime());
+        }
+        return new InvoiceSummary(rides.length, totalFare);
     }
 }
