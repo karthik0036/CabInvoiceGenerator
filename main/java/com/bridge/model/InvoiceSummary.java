@@ -10,13 +10,15 @@ public class InvoiceSummary {
     public InvoiceSummary() {
     }
 
-    public InvoiceSummary(int numberOfRides, double totalFare, double avgFare) {
+    public InvoiceSummary(int numberOfRides, double totalFare) {
         this.numberOfRides = numberOfRides;
         this.totalFare = totalFare;
-        this.avgFare = avgFare;
+
     }
 
-    public InvoiceSummary(int distance, double totalFare) {
+    public InvoiceSummary(int numberOfRides, double totalFare, String type) {
+        this.numberOfRides = numberOfRides;
+        this.totalFare = totalFare;
     }
 
 
