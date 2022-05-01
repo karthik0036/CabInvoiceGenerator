@@ -1,5 +1,6 @@
 package com.bridge.service;
 
+import com.bridge.model.Ride;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -26,6 +27,22 @@ public class InvoiceServiceTest {
         double totalFare = invoiceService.calculateFare(distance, time);
         Assert.assertEquals(5.0,totalFare,0);
     }
+
+    @Test
+    public void givenMultipleRides_ShouldReturn_TotalOfTotalRides(){
+        Ride[] rides ={
+                new Ride(2.0,3),
+                new Ride(3.0,4),
+                new Ride(4.0,5),
+                new Ride(0.1,1),
+
+        };
+        InvoiceService invoiceService = new InvoiceService();
+        double totalFare = invoiceService.calculateFare(rides);
+
+        Assert.assertEquals(5,totalFare,0);
+    }
+
 
 
 
