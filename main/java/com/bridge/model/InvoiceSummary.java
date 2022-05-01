@@ -16,8 +16,9 @@ public class InvoiceSummary {
         this.avgFare = avgFare;
     }
 
-    public InvoiceSummary(int length, double totalFare) {
+    public InvoiceSummary(int distance, double totalFare) {
     }
+
 
     public InvoiceSummary getInvoiceSummary() {
         this.avgFare = this.totalFare / this.numberOfRides;
